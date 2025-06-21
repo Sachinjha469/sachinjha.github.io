@@ -94,4 +94,152 @@
         });
     });
 
+    // Active navigation highlighting
+    $(window).scroll(function() {
+        var scrollDistance = $(window).scrollTop();
+        
+        // Check each section in reverse order
+        $('section').each(function(i) {
+            if ($(this).position().top <= scrollDistance + 100) {
+                $('header a.active').removeClass('active');
+                $('header a').eq(i).addClass('active');
+            }
+        });
+    }).scroll();
+
+    // Animate skill bars when in viewport
+    function animateSkillBars() {
+        $('.skill-bar').each(function() {
+            var $this = $(this);
+            var width = $this.css('width');
+            
+            if ($this.is(':in-viewport')) {
+                $this.css('width', '0%').animate({
+                    width: width
+                }, 1500);
+            }
+        });
+    }
+
+    // Check if element is in viewport
+    $.fn.isInViewport = function() {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+
+    // Trigger skill bar animation on scroll
+    $(window).scroll(function() {
+        if ($('.skill-bar').isInViewport()) {
+            animateSkillBars();
+        }
+    });
+
+    // Smooth reveal animations for sections
+    function revealOnScroll() {
+        var scrolled = $(window).scrollTop();
+        var win_height_padded = $(window).height() * 0.8;
+
+        $(".reveal:not(.animated)").each(function() {
+            var $this = $(this),
+                offsetTop = $this.offset().top;
+
+            if (scrolled + win_height_padded > offsetTop) {
+                if ($this.data('timeout')) {
+                    window.setTimeout(function() {
+                        $this.addClass('animated ' + $this.data('animation'));
+                    }, parseInt($this.data('timeout'), 10));
+                } else {
+                    $this.addClass('animated ' + $this.data('animation'));
+                }
+            }
+        });
+    }
+
+    // Add reveal class to sections
+    $('.project, .education-block, .skill-item').addClass('reveal').attr('data-animation', 'fadeInUp');
+
+    // Trigger reveal animations
+    $(window).scroll(function() {
+        revealOnScroll();
+    });
+
+    // Initialize reveal on page load
+    revealOnScroll();
+
+    // Enhanced form validation and feedback
+    $('#contact-form').submit(function(e) {
+        e.preventDefault();
+        
+        var $form = $(this);
+        var $button = $form.find('button');
+        var originalText = $button.text();
+        
+        // Show loading state
+        $button.text('Sending...').prop('disabled', true);
+        
+        // Simulate form submission (replace with actual form handling)
+        setTimeout(function() {
+            $button.text('Message Sent!').addClass('success');
+            
+            // Reset form
+            $form[0].reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(function() {
+                $button.text(originalText).prop('disabled', false).removeClass('success');
+            }, 3000);
+        }, 2000);
+    });
+
+    // Add hover effects to project cards
+    $('.project').hover(
+        function() {
+            $(this).find('.project-info').css('transform', 'translateY(-50%) scale(1.02)');
+        },
+        function() {
+            $(this).find('.project-info').css('transform', 'translateY(-50%) scale(1)');
+        }
+    );
+
+    // Parallax effect for lead section
+    $(window).scroll(function() {
+        var scrolled = $(window).scrollTop();
+        var parallax = $('.parallax');
+        var speed = 0.5;
+        
+        parallax.css('transform', 'translateY(' + (scrolled * speed) + 'px)');
+    });
+
+    // Add parallax class to lead overlay
+    $('#lead-overlay').addClass('parallax');
+
+    // Typing effect for lead subtitle
+    function typeWriter(element, text, speed = 100) {
+        var i = 0;
+        element.html('');
+        
+        function type() {
+            if (i < text.length) {
+                element.html(element.html() + text.charAt(i));
+                i++;
+                setTimeout(type, speed);
+            }
+        }
+        type();
+    }
+
+    // Initialize typing effect when page loads
+    $(document).ready(function() {
+        var subtitle = $('.lead-subtitle');
+        var originalText = subtitle.text();
+        
+        // Start typing effect after a short delay
+        setTimeout(function() {
+            typeWriter(subtitle, originalText, 50);
+        }, 1000);
+    });
+
 })(jQuery);
