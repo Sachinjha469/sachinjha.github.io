@@ -4,7 +4,7 @@ This is the repository for my personal portfolio website, showcasing my skills, 
 
 ## Live Demo
 
-You can view the live version of my portfolio here: [https://sachinjha.github.io/sachinportfolio/](https://sachinjha.github.io/sachinportfolio/)
+You can view the live version of my portfolio here: [https://sachinjha.github.io/sachinportfolio/](https://sachinjha469.github.io/sachinjha.github.io/)
 
 ## Features
 
