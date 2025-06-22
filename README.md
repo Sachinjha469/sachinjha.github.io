@@ -146,9 +146,6 @@ The contact form uses Formspree for handling submissions. To set up:
 - Edge (latest)
 - Mobile browsers
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 
