@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my experience as a Backend Sof
 
 ## 🚀 Live Demo
 
-You can view the live version of my portfolio here: [https://sachinjha469.github.io/sachinjha.github.io/](https://sachinjha469.github.io/sachinjha.github.io/)
+You can view the live version of my portfolio here: [https://sachinjha469.github.io/sachinjha.github.io/](https://bit.ly/4li8kIw)
 
 ## 🎨 Features
 
