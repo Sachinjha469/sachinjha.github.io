@@ -886,97 +886,149 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
+    .navbar {
+        padding: 0.5rem 0;
     }
-
+    .nav-container {
+        flex-direction: row;
+        padding: 0 10px;
+    }
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 60px;
         flex-direction: column;
-        background-color: white;
+        background: white;
         width: 100%;
         text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        transition: left 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         padding: 2rem 0;
+        gap: 1.5rem;
+        z-index: 1001;
     }
-
     .nav-menu.active {
         left: 0;
     }
-
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 1002;
+    }
+    .bar {
+        width: 25px;
+        height: 3px;
+        background: #333;
+        margin: 3px 0;
+        transition: 0.3s;
+    }
     .hero-container {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 2rem;
+        text-align: center;
+        padding: 0 10px;
     }
-
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
-
     .hero-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: center;
     }
-
     .hero-stats {
+        flex-direction: row;
         justify-content: center;
+        gap: 1.2rem;
     }
-
+    .profile-avatar {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 1rem;
+    }
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-
+    .highlight-card {
+        padding: 1.2rem;
+    }
+    .timeline {
+        max-width: 100%;
+        padding: 0 5px;
+    }
     .timeline::before {
         left: 20px;
     }
-
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
         margin-left: 50px;
         margin-right: 0;
-        padding-left: 2rem;
+        padding-left: 1rem;
         padding-right: 0;
         text-align: left;
     }
-
     .timeline-marker {
         left: 20px;
     }
-
+    .education-card {
+        padding: 1.5rem;
+    }
+    .awards-grid, .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .project-image {
+        height: 180px;
+    }
+    .project-content {
+        padding: 1.2rem;
+    }
+    .skills-content {
+        padding: 0 5px;
+    }
+    .skills-grid {
+        gap: 1rem;
+    }
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 0 5px;
     }
-
     .footer-content {
         flex-direction: column;
         text-align: center;
+        gap: 0.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.4rem;
     }
-
     .section-title {
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .btn {
         width: 100%;
-        max-width: 250px;
-        justify-content: center;
+        max-width: 220px;
+        font-size: 1rem;
+    }
+    .profile-avatar {
+        width: 65px;
+        height: 65px;
+    }
+    .project-image {
+        height: 120px;
+    }
+    .education-card, .project-content, .highlight-card {
+        padding: 0.7rem;
+    }
+    .skills-tags {
+        gap: 0.5rem;
     }
 }
 
