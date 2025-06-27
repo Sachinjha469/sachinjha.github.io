@@ -926,10 +926,16 @@ section {
         transition: 0.3s;
     }
     .hero-container {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 2rem;
         text-align: center;
         padding: 0 10px;
+    }
+    .hero-content, .hero-image {
+        width: 100%;
+        max-width: 400px;
     }
     .hero-title {
         font-size: 2.2rem;
