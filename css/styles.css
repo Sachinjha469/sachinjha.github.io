@@ -925,17 +925,32 @@ section {
         margin: 3px 0;
         transition: 0.3s;
     }
-    .hero-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        text-align: center;
-        padding: 0 10px;
+    .hero,
+    .hero-container,
+    .hero-content,
+    .hero-image,
+    .profile-card {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        overflow-x: visible !important;
     }
-    .hero-content, .hero-image {
-        width: 100%;
-        max-width: 400px;
+    .hero-container {
+        display: block !important;
+        text-align: center !important;
+        padding: 0 !important;
+    }
+    .hero-image {
+        margin-top: 2rem !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+    body {
+        overflow-x: hidden !important;
     }
     .hero-title {
         font-size: 2.2rem;
